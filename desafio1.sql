@@ -95,8 +95,67 @@ INSERT INTO posts (nombre_de_usuario, fecha_de_creacion, contenido, descripcion,
 --  6 | Carlos            | 2020-06-18        | pagos proveedores | detalle pagos semana      | transferencias
 --(6 filas)
 
+---------------------PARTE 2-------------------------------------
+--9. Crear una nueva tabla, llamada comentarios, con los atributos id, fecha y hora de creación,contenido, que se relacione con la tabla posts.--
+CREATE TABLE comentarios (id SERIAL, posts_id INT, fecha_y_hora TIMESTAMP, contenido VARCHAR(300), FOREIGN KEY (posts_id) REFERENCES posts(id), PRIMARY KEY(id));
+--CREATE TABLE
+--SELECT * FROM comentarios;
+-- id | posts_id | fecha_y_hora | contenido 
+----+----------+--------------+-----------
+--(0 filas)
 
+--10. Crear 2 comentarios para el post de "Pamela" y 4 para "Carlos" 
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (1, '24-06-2020 13:51:30','Lorem Ipsum');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (1, '24-07-2020 12:51:30','Lorem Ipsum2');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (6, '24-05-2020 11:51:30','Lorem Ipsum3');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (6, '24-05-2020 11:51:30','Lorem Ipsum4');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (6, '24-05-2020 11:51:30','Lorem Ipsum5');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (6, '24-05-2020 11:51:30','Lorem Ipsum6');
+--SELECT * FROM comentarios;
+-- id | posts_id |    fecha_y_hora     |  contenido   
+----+----------+---------------------+--------------
+--  1 |        1 | 2020-06-24 13:51:30 | Lorem Ipsum
+--  2 |        1 | 2020-07-24 12:51:30 | Lorem Ipsum2
+--  3 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum3
+--  4 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum4
+--  5 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum5
+--  6 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum6
+--(6 filas)
 
+--11. Crear un nuevo post para "Margarita" 
+INSERT INTO posts (nombre_de_usuario, fecha_de_creacion, contenido, descripcion, titulo) VALUES ('Margarita', '2020-07-17', 'Fechas Despedida', 'junta despedida', 'Despedida');
+--SELECT * FROM posts;
+-- id | nombre_de_usuario | fecha_de_creacion |     contenido     |        descripcion        |     titulo     
+----+-------------------+-------------------+-------------------+---------------------------+----------------
+--  1 | Pamela            | 2020-06-17        | 5 contratos       | nuevos colaboradores      | contratos
+--  2 | Pamela            | 2020-06-17        | 10 finiquitos     | desvinculaciones          | finiquitos
+--  3 | Carlos            | 2020-06-16        | 4 permisos        | permiso comisaria virtual | permisos
+--  4 | Pedro             | 2020-06-17        | Charla Covid-19   | Informacion Achs          | Charla
+--  5 | Pedro             | 2020-06-17        | Curso oratoria    | como hablar en publico    | Capacitacion
+--  6 | Carlos            | 2020-06-18        | pagos proveedores | detalle pagos semana      | transferencias
+--  7 | Margarita         | 2020-07-17        | Fechas Despedida  | junta despedida           | Despedida
+--(7 filas)
 
+--12. Ingresar 5 comentarios para el post de Margarita. 
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (7, '24-05-2020 11:51:30','Lorem Ipsum7');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (7, '24-05-2020 11:51:30','Lorem Ipsum8');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (7, '24-05-2020 11:51:30','Lorem Ipsum9');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (7, '24-05-2020 11:51:30','Lorem Ipsum10');
+INSERT INTO comentarios (posts_id, fecha_y_hora, contenido) VALUES (7, '24-05-2020 11:51:30','Lorem Ipsum11');
+--SELECT * FROM comentarios;
+-- id | posts_id |    fecha_y_hora     |   contenido   
+------+----------+---------------------+---------------
+--  1 |        1 | 2020-06-24 13:51:30 | Lorem Ipsum
+--  2 |        1 | 2020-07-24 12:51:30 | Lorem Ipsum2
+--  3 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum3
+--  4 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum4
+--  5 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum5
+--  6 |        6 | 2020-05-24 11:51:30 | Lorem Ipsum6
+--  8 |        7 | 2020-05-24 11:51:30 | Lorem Ipsum7
+--  9 |        7 | 2020-05-24 11:51:30 | Lorem Ipsum8
+-- 10 |        7 | 2020-05-24 11:51:30 | Lorem Ipsum9
+-- 11 |        7 | 2020-05-24 11:51:30 | Lorem Ipsum10
+-- 12 |        7 | 2020-05-24 11:51:30 | Lorem Ipsum11
+--(11 filas)
 
 
