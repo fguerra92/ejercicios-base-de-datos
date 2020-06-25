@@ -134,6 +134,70 @@ SELECT año, nombre FROM peliculas WHERE año BETWEEN 1990 AND 1999 ORDER BY añ
 --  1999 | Toy Story 2
 --  1999 | La milla verde
 
+--9. Listar el reparto de las películas lanzadas el año 2001 
+SELECT M.nombre, A.nombre_reparto FROM peliculas AS M INNER JOIN reparto AS A ON M.id = A.peliculas_id WHERE M.año = 2001;
+--                      nombre                      |  nombre_reparto   
+-- --------------------------------------------------+-------------------
+--  El Señor de los anillos: La comunidad del anillo | Elijah Wood
+--  El Señor de los anillos: La comunidad del anillo | Ian McKellen
+--  El Señor de los anillos: La comunidad del anillo | Viggo Mortensen
+--  El Señor de los anillos: La comunidad del anillo | Sean Astin
+--  El Señor de los anillos: La comunidad del anillo | Sean Bean
+--  El Señor de los anillos: La comunidad del anillo | Cate Blanchett
+--  El Señor de los anillos: La comunidad del anillo | Hugo Weaving
+--  El Señor de los anillos: La comunidad del anillo | Liv Tyler
+--  El Señor de los anillos: La comunidad del anillo | Ian Holm
+--  El Señor de los anillos: La comunidad del anillo | Christopher Lee
+--  El Señor de los anillos: La comunidad del anillo | John Rhys-Davies
+--  El Señor de los anillos: La comunidad del anillo | Orlando Bloom
+--  El Señor de los anillos: La comunidad del anillo | Dominic Monaghan
+--  El Señor de los anillos: La comunidad del anillo | Billy Boyd
+--  El Señor de los anillos: La comunidad del anillo | Lawrence Makoare
+--  El Señor de los anillos: La comunidad del anillo | Craig Parker
+--  El Señor de los anillos: La comunidad del anillo | Marton Csokas
+--  El Señor de los anillos: La comunidad del anillo | Andy Serkis
+--  Monstruos S.A.                                   | Animada
+--  El viaje de Chihiro                              | Animada
+--  Amélie                                           | Audrey Tautou
+--  Amélie                                           | Mathieu Kassovitz
+--  Amélie                                           | Rufus
+--  Amélie                                           | Lorella Cravotta
+--  Amélie                                           | Serge Merlin
+--  Amélie                                           | Jamel Debbouze
+--  Amélie                                           | Claire Maurier
+--  Amélie                                           | Clotilde Mollet
+--  Amélie                                           | Isabelle Nanty
+--  Amélie                                           | Dominique Pinon
+--  Amélie                                           | Artus de Penguern
+--  Amélie                                           | Yolande Moreau
+--  Amélie                                           | Urbain Cancelier
+--  Amélie                                           | Maurice Benichou
+--  Ocean's Eleven                                   | George Clooney
+--  Ocean's Eleven                                   | Julia Roberts
+--  Ocean's Eleven                                   | Matt Damon
+--  Ocean's Eleven                                   | Andy García
+--  Ocean's Eleven                                   | Brad Pitt
+--  Ocean's Eleven                                   | Casey Affleck
+--  Ocean's Eleven                                   | Scott Caan
+--  Ocean's Eleven                                   | Elliott Gould
+--  Ocean's Eleven                                   | Bernie Mac
+--  Ocean's Eleven                                   | Carl Reiner
+--  Ocean's Eleven                                   | Don Cheadle
+--  Ocean's Eleven                                   | Topher Grace
+--  Ocean's Eleven                                   | Joshua Jackson
+--  Ocean's Eleven                                   | Holly Marie Combs
+--  Ocean's Eleven                                   | Shane West
+--  Mouling Rouge                                    | Nicole Kidman
+--  Mouling Rouge                                    | Ewan McGregor
+--  Mouling Rouge                                    | John Leguizamo
+--  Mouling Rouge                                    | Jim Broadbent
+--  Mouling Rouge                                    | Richard Roxburgh
+--  Mouling Rouge                                    | David Wenham
+--  Mouling Rouge                                    | Jacek Koman
+--  Mouling Rouge                                    | Kylie Minogue
+-- (57 filas)
+
+
 --10. Listar los actores de la película más nueva
 SELECT nombre_reparto FROM reparto WHERE peliculas_id IN (SELECT id FROM peliculas ORDER BYaño DESC LIMIT 1);
 -- nombre_reparto    
