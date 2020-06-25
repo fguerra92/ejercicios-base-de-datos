@@ -118,6 +118,34 @@ INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 1
 -- (10 filas)
 
 
+-- id | cantidad | facturas_id | productos_id 
+-- ----+----------+-------------+--------------
+--   9 |          |           3 |            1
+--  10 |          |           3 |            2
+--  11 |          |           4 |            3
+--  12 |          |           4 |            4
+--  13 |          |           4 |            5
+--  14 |          |           5 |            6
+--  15 |          |           5 |            7
+--  16 |          |           5 |            8
+--  17 |          |           6 |            4
+--  18 |          |           6 |            6
+--  19 |          |           7 |            4
+--  20 |          |           7 |            2
+--  21 |          |           7 |            3
+--  22 |          |           8 |            3
+--  23 |          |           9 |            4
+--  24 |          |           9 |            5
+--  25 |          |          10 |            3
+--  26 |          |          10 |            6
+--  27 |          |          10 |            5
+--  28 |          |          11 |            3
+--  29 |          |          11 |            4
+--  30 |          |          11 |            8
+--  31 |          |          11 |            1
+--  32 |          |          12 |            1
+-- (24 filas)
+
 
 
 -------¿Que cliente realizó la compra más cara?----
@@ -137,5 +165,10 @@ SELECT DISTINCT (c.rut), c.nombre FROM clientes AS c INNER JOIN facturas AS f ON
 -- (3 filas)
 
 --------------¿Cuantos clientes han comprado el producto 6?-----
-SELECT  productos_id, cliente.nombre cliente_nombre FROM facturas_producto INNER JOIN facturas ON facturas.id = facturas_producto.facturas_id INNER JOIN cliente ON clientes.id = facturas.cliente_id WHERE productos_id =6;
-SELECT  productos_id, clientes.nombre clientes_nombre FROM facturas_productos INNER JOIN facturas ON facturas.id = facturas_producto.facturas_id INNER JOIN clientes ON clientes.id = facturas.clientes_id WHERE productos_id =6;
+SELECT  productos_id, clientes.nombre clientes_nombre FROM facturas_productos INNER JOIN facturas ON facturas.id = facturas_productos.facturas_id INNER JOIN clientes ON clientes.id = facturas.clientes_id WHERE productos_id =6;
+-- productos_id | clientes_nombre 
+-- --------------+-----------------
+--             6 | José
+--             6 | Felipe
+--             6 | Michel
+-- (3 filas)
