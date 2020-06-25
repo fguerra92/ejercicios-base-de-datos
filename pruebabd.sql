@@ -98,9 +98,9 @@ INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (9, 4), (9,5)
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 500, 4);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (10, 3), (10, 6), (10,5);
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 700, 4);
---INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (11, 3), (11, 4), (11, 8), (11,1);
+INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (11, 3), (11, 4), (11, 8), (11,1);
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 100, 4);
---INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (12, 1);
+INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (12, 1);
 
 -- SELECT * FROM facturas;
 --  id | numero |   fecha    | iva | subtotal | clientes_id 
