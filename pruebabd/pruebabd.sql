@@ -80,7 +80,7 @@ INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (3,1), (3,2);
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 500,1);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (4, 3), (4, 4), (4,5);
 
---cliente José 2
+--cliente José 2--
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 800, 2);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (5, 6), (5, 7), (5,8);
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 400, 2);
@@ -88,11 +88,11 @@ INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (6, 4), (6, 6
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 400, 2);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (7, 4), (7, 2), (7,3);
 
---clinete Felipe 3
+--clinete Felipe 3--
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 100, 3);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (8, 3);
 
---cliente Michel 4
+--cliente Michel 4--
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 400, 4);
 INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (9, 4), (9,5);
 INSERT INTO facturas (fecha, iva, subtotal, clientes_id) VALUES (CURRENT_DATE, 19, 500, 4);
@@ -148,14 +148,14 @@ INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (12, 1);
 
 
 
--------¿Que cliente realizó la compra más cara?----
+-------¿Que cliente realizó la compra más cara?-------------
 SELECT c.nombre, f.subtotal FROM clientes AS c INNER JOIN facturas AS f ON f.clientes_id =c.id ORDER BY f.subtotal DESC LIMIT 1;
 --  nombre | subtotal 
 -- --------+----------
 --  José   |      800
 -- (1 fila)
 
---------------¿Que cliente pagó sobre 100 de monto?-------------
+--------------¿Que cliente pagó sobre 100 de monto?---------------
 SELECT DISTINCT (c.rut), c.nombre FROM clientes AS c INNER JOIN facturas AS f ON f.clientes_id = c.id WHERE f.subtotal > 250;
 --    rut    |  nombre   
 -- ----------+-----------
@@ -164,7 +164,7 @@ SELECT DISTINCT (c.rut), c.nombre FROM clientes AS c INNER JOIN facturas AS f ON
 --  12345678 | Michel
 -- (3 filas)
 
---------------¿Cuantos clientes han comprado el producto 6?-----
+--------------¿Cuantos clientes han comprado el producto 6?---------
 SELECT  productos_id, clientes.nombre clientes_nombre FROM facturas_productos INNER JOIN facturas ON facturas.id = facturas_productos.facturas_id INNER JOIN clientes ON clientes.id = facturas.clientes_id WHERE productos_id =6;
 -- productos_id | clientes_nombre 
 -- --------------+-----------------
