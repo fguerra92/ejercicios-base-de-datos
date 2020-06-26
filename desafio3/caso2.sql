@@ -1,33 +1,30 @@
-CREATE TABLE curso(id SERIAL,nombre VARCHAR,PRIMARY KEY (id));
+CREATE TABLE cursos(id SERIAL,nombres VARCHAR,PRIMARY KEY (id));
 -- SELECT * FROM CURSO;
---  id | nombre 
+--  id | nombres
 -- ----+--------
 -- (0 filas)
 
-
-CREATE TABLE alumno(id SERIAL UNIQUE,nombre_alumno VARCHAR,curso_id INT,rut INT,FOREIGN KEY(curso_id) REFERENCES curso(id));
+CREATE TABLE alumnos(id SERIAL UNIQUE,nombres_alumnos VARCHAR,cursos_id INT,rut INT,FOREIGN KEY(cursos_id) REFERENCES cursos(id));
 -- SELECT * FROM ALUMNO;
---  id | nombre_alumno | curso_id | rut 
+--  id | nombres_alumnos | cursos_id | rut 
 -- ----+---------------+----------+-----
 -- (0 filas)
 
-CREATE TABLE departamento(id SERIAL PRIMARY KEY,nombre_departamento VARCHAR);
--- SELECT * FROM departamento;
---  id | nombre_departamento 
+CREATE TABLE departamentos(id SERIAL PRIMARY KEY,nombres_departamentos VARCHAR);
+-- SELECT * FROM departamentos;
+--  id | nombres_departamentos
 -- ----+---------------------
 -- (0 filas)
 
-CREATE TABLE profesor(id SERIAL PRIMARY KEY,nombre_profesor VARCHAR,departamento_id INT,OREIGN KEY(departamento_id) REFERENCES departamento);
--- SELECT * FROM profesor;
---  id | nombre_profesor | departamento_id 
+CREATE TABLE profesores(id SERIAL PRIMARY KEY,nombres_profesores VARCHAR,departamentos_id INT,FOREIGN KEY(departamentos_id) REFERENCES departamentos);
+-- SELECT * FROM profesores;
+--  id | nombres_profesores | departamentos_id 
 -- ----+-----------------+-----------------
 -- (0 filas)
 
 
-CREATE TABLE prueba_alumno (id SERIAL PRIMARY KEY,nota FLOAT,score FLOAT,alumno_id INT,profesor_id INT,FOREIGN KEY (alumno_id) REFERENCES alumno(id),
-FOREIGN KEY (profesor_id) REFERENCES profesor(id)
-);
--- SELECT * FROM prueba_alumno;
---  id | nota | score | alumno_id | profesor_id 
+CREATE TABLE pruebas_alumnos (id SERIAL PRIMARY KEY,nota FLOAT,score FLOAT,alumnos_id INT,profesores_id INT,FOREIGN KEY (alumnos_id) REFERENCES alumnos(id),FOREIGN KEY (profesores_id) REFERENCES profesores(id));
+-- SELECT * FROM pruebas_alumnos;
+--  id | nota | score | alumnos_id | profesores_id 
 -- ----+------+-------+-----------+-------------
 -- (0 filas)
