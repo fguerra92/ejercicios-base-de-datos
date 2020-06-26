@@ -117,7 +117,7 @@ INSERT INTO facturas_productos (facturas_id, productos_id) VALUES  (12, 1);
 --  10 |        | 2020-06-25 |  19 |      100 |           4
 -- (10 filas)
 
-
+--SELECT * FROM facturas_productos;
 -- id | cantidad | facturas_id | productos_id 
 -- ----+----------+-------------+--------------
 --   9 |          |           3 |            1
