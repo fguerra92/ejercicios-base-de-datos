@@ -1,44 +1,44 @@
-CREATE TABLE "editorial" (
+CREATE TABLE "editoriales" (
   "id" SERIAL PRIMARY KEY,
-  "nombre_editorial" CARCHAR
+  "nombres_editoriales" VARCHAR
 );
 
-CREATE TABLE "lector" (
+CREATE TABLE "lectores" (
   "id" SERIAL PRIMARY KEY,
-  "nombre_lector" VARCHAR
+  "nombres_lectores" VARCHAR
 );
 
-CREATE TABLE "autor" (
+CREATE TABLE "autores" (
   "id" SERIAL PRIMARY KEY,
-  "nombre_autor" VARCHAR
+  "nombres_autores" VARCHAR
 );
 
-CREATE TABLE "libro" (
+CREATE TABLE "libros" (
   "id" SERIAL PRIMARY KEY,
-  "codigo" INT,
-  "titulo" VARCHAR,
-  "editorial_id" INT
+  "codigos" INT,
+  "titulos" VARCHAR,
+  "editoriales_id" INT
 );
 
-CREATE TABLE "prestamo" (
+CREATE TABLE "prestamos" (
   "id" SERIAL PRIMARY KEY,
-  "fecha" DATE,
-  "lector_id" INT,
-  "libro_id" INT
+  "fechas" DATE,
+  "lectores_id" INT,
+  "libros_id" INT
 );
 
-CREATE TABLE "libro_autor" (
+CREATE TABLE "libros_autores" (
   "id" SERIAL PRIMARY KEY,
-  "autor_id" INT,
-  "libro_id" INT
+  "autores_id" INT,
+  "libros_id" INT
 );
 
-ALTER TABLE "libro" ADD FOREIGN KEY ("editorial_id") REFERENCES "editorial" ("id");
+ALTER TABLE "libros" ADD FOREIGN KEY ("editoriales_id") REFERENCES "editoriales" ("id");
 
-ALTER TABLE "prestamo" ADD FOREIGN KEY ("lector_id") REFERENCES "lector" ("id");
+ALTER TABLE "prestamos" ADD FOREIGN KEY ("lectores_id") REFERENCES "lectores" ("id");
 
-ALTER TABLE "prestamo" ADD FOREIGN KEY ("libro_id") REFERENCES "libro" ("id");
+ALTER TABLE "prestamos" ADD FOREIGN KEY ("libros_id") REFERENCES "libros" ("id");
 
-ALTER TABLE "libro_autor" ADD FOREIGN KEY ("autor_id") REFERENCES "autor" ("id");
+ALTER TABLE "libros_autores" ADD FOREIGN KEY ("autores_id") REFERENCES "autores" ("id");
 
-ALTER TABLE "libro_autor" ADD FOREIGN KEY ("libro_id") REFERENCES "libro" ("id");
+ALTER TABLE "libros_autores" ADD FOREIGN KEY ("libros_id") REFERENCES "libros" ("id");
